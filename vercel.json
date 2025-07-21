@@ -1,29 +1,31 @@
 {
     "$schema": "https://openapi.vercel.sh/vercel.json",
+
     "redirects": [
         {
-            "source": "www.blockspage.com",
-            "destination": "https://blockspage.com",
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.:subdomain.maindomain.com"
+                }
+            ],
+            "destination": "https://:subdomain.maindomain.com/:1",
             "permanent": true
         },
         {
-            "source": "https://www.:subdomain.blockspage.com",
-            "destination": "https://:subdomain.blockspage.com",
-            "permanent": true
-        },
-        {
-            "source": "www.:subdomain.blockspage.com",
-            "destination": "https://:subdomain.blockspage.com",
-            "permanent": true
-        },
-        {
-            "source": "http://www.:subdomain.blockspage.com",
-            "destination": "https://:subdomain.blockspage.com",
-            "permanent": true
-        },
-        {
-            "source": "http://:subdomain.blockspage.com",
-            "destination": "https://:subdomain.blockspage.com",
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": ":subdomain.maindomain.com"
+                },
+                {
+                    "type": "protocol",
+                    "value": "http"
+                }
+            ],
+            "destination": "https://:subdomain.maindomain.com/:1",
             "permanent": true
         }
     ]
