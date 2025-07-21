@@ -3,9 +3,10 @@ import { defineMiddleware } from 'astro:middleware';
 export const onRequest = defineMiddleware((context, next) => {
     // 1. Get the hostname from the request URL.
     const hostname = context.url.hostname;
-    if (hostname.includes('www')) {
+    if (hostname.startsWith('www.')) {
+        const nakedHostname = hostname.replace('www.', '');
         return Response.redirect(
-            new URL(`https://${hostname.replace('www.', '')}`),
+            new URL(context.url.pathname, `https://${nakedHostname}`),
             301
         );
     }
