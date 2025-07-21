@@ -1,0 +1,15 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "redirects": [
+        {
+            "source": "www.blockspage.com",
+            "destination": "https://blockspage.com",
+            "permanent": true
+        },
+        {
+            "source": "www.:subdomain.blockspage.com",
+            "destination": "https://:subdomain.blockspage.com",
+            "permanent": true
+        }
+    ]
+}
