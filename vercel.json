@@ -10,21 +10,6 @@
             ],
             "destination": "https://:subdomain.blockspage.com/:1",
             "permanent": true
-        },
-        {
-            "source": "/(.*)",
-            "has": [
-                {
-                    "type": "host",
-                    "value": ":subdomain.blockspage.com"
-                },
-                {
-                    "type": "protocol",
-                    "value": "http"
-                }
-            ],
-            "destination": "https://:subdomain.blockspage.com/:1",
-            "permanent": true
         }
     ]
 }
