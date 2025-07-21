@@ -3,6 +3,12 @@ import { defineMiddleware } from 'astro:middleware';
 export const onRequest = defineMiddleware((context, next) => {
     // 1. Get the hostname from the request URL.
     const hostname = context.url.hostname;
+    if (hostname.includes('www')) {
+        return Response.redirect(
+            new URL(`https://${hostname.replace('www.', '')}`),
+            301
+        );
+    }
 
     // 2. Attach the hostname to `context.locals`. This is a special object
     //    that securely passes data from middleware to your Astro pages.
