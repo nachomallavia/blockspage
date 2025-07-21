@@ -7,10 +7,10 @@
             "has": [
                 {
                     "type": "host",
-                    "value": "www.:subdomain.maindomain.com"
+                    "value": "www.:subdomain.blockspage.com"
                 }
             ],
-            "destination": "https://:subdomain.maindomain.com/:1",
+            "destination": "https://:subdomain.blockspage.com/:1",
             "permanent": true
         },
         {
@@ -18,14 +18,14 @@
             "has": [
                 {
                     "type": "host",
-                    "value": ":subdomain.maindomain.com"
+                    "value": ":subdomain.blockspage.com"
                 },
                 {
                     "type": "protocol",
                     "value": "http"
                 }
             ],
-            "destination": "https://:subdomain.maindomain.com/:1",
+            "destination": "https://:subdomain.blockspage.com/:1",
             "permanent": true
         }
     ]
