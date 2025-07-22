@@ -1,7 +1,5 @@
 ---
-const { slug } = Astro.params;
-const hostname = Astro.locals.hostname;
-console.log(slug);
+import { Image } from 'astro:assets';
 ---
 <html lang="en">
   <head>
@@ -38,7 +36,8 @@ console.log(slug);
   <body>
     <main>
       <h1>This site is being served for:</h1>
-      <p>{hostname}</p>
+      <p>BLOCKSPAGE</p>
+      <Image src="/logo.svg" alt="blockspage" width={100} height={100} />
     </main>
   </body>
 </html>
