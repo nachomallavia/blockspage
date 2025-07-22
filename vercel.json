@@ -1,0 +1,27 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "redirects": [
+        {
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.blockspage.com"
+                }
+            ],
+            "destination": "https://blockspage.com/$1",
+            "permanent": true
+        },
+        {
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.(?<subdomain>[^.]+)\\.blockspage\\.com"
+                }
+            ],
+            "destination": "https://$subdomain.blockspage.com/$1",
+            "permanent": true
+        }
+    ]
+}
