@@ -1,0 +1,22 @@
+---
+import blockspageImg from '../../assets/blockspage.png';
+import { Image } from 'astro:assets';
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout>
+    <div class="flex flex-col items-center justify-center h-screen">
+        <Image src={blockspageImg} alt="Blockspage" class="w-1/4" />
+        <h1 class="text-4xl font-bold hidden">Blockspage</h1>
+    <p class="text-lg">
+       The simplest page builder.
+    </p>
+    <a href="/login" class="text-blue-500">
+        Login
+    </a>
+    <a href="/signup" class="text-blue-500">
+        Signup
+    </a>
+</div>
+</Layout>
+</div>

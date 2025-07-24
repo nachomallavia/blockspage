@@ -2,6 +2,7 @@
 const { slug } = Astro.params;
 const hostname = Astro.locals.hostname;
 console.log(slug);
+import Layout from '@/layouts/Layout.astro';
 ---
 <html lang="en">
   <head>
@@ -9,36 +10,14 @@ console.log(slug);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <title>blockspage MVP</title>
-    <style>
-      body {
-        display: grid;
-        place-content: center;
-        min-height: 100vh;
-        font-family: system-ui, sans-serif;
-        text-align: center;
-        background-color: #f8f9fa;
-        color: #212529;
-      }
-      h1 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #6c757d;
-      }
-      p {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #495057;
-        background-color: #e9ecef;
-        padding: 1rem 2rem;
-        border-radius: 0.5rem;
-        border: 1px solid #dee2e6;
-      }
-    </style>
+    
   </head>
   <body>
-    <main>
-      <h1>This site is being served for:</h1>
-      <p>{hostname}</p>
-    </main>
+    <Layout>
+      <main>
+        <h1 class="text-2xl font-bold">This site is being served for:</h1>
+        <p class="text-4xl font-bold text-blue-500">{hostname}</p>
+      </main>
+    </Layout>
   </body>
 </html>
