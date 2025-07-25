@@ -13,11 +13,14 @@ export const onRequest = defineMiddleware((context, next) => {
 
     // Restrict /main to allowed hosts only
     const allowedHosts = ['blockspage.com', 'localhost', '127.0.0.1'];
-    if (pathname.startsWith('/main') && !allowedHosts.includes(hostname)) {
+    const isMain = allowedHosts.includes(hostname);
+
+    if (pathname.startsWith('/main') && !isMain) {
         // Redirect to the subdomain's home route
         return context.redirect('/', 302);
+    } else if (isMain && pathname === '/') {
+        return context.rewrite('/main');
     }
-
     context.locals.hostname = hostname;
     return next();
 });
