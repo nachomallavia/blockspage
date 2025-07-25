@@ -22,6 +22,28 @@
             ],
             "destination": "https://$subdomain.blockspage.com/$1",
             "permanent": true
+        },
+        {
+            "source": "/",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "localhost"
+                }
+            ],
+            "destination": "/main",
+            "permanent": true
+        },
+        {
+            "source": "/",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "127.0.0.1"
+                }
+            ],
+            "destination": "/main",
+            "permanent": true
         }
     ],
     "rewrites": [
