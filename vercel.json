@@ -28,7 +28,7 @@
             "has": [
                 {
                     "type": "host",
-                    "key": "host",
+
                     "value": "localhost"
                 }
             ],
@@ -40,7 +40,7 @@
             "has": [
                 {
                     "type": "host",
-                    "key": "host",
+
                     "value": "127.0.0.1"
                 }
             ],
@@ -52,19 +52,17 @@
         {
             "source": "/",
             "destination": "/main",
-            "has": [
-                { "type": "host", "key": "host", "value": "blockspage.com" }
-            ]
+            "has": [{ "type": "host", "value": "blockspage.com" }]
         },
         {
             "source": "/",
             "destination": "/main",
-            "has": [{ "type": "host", "key": "host", "value": "localhost" }]
+            "has": [{ "type": "host", "value": "localhost" }]
         },
         {
             "source": "/",
             "destination": "/main",
-            "has": [{ "type": "host", "key": "host", "value": "127.0.0.1" }]
+            "has": [{ "type": "host", "value": "127.0.0.1" }]
         }
     ]
 }
