@@ -1,0 +1,13 @@
+---
+import { Image } from 'astro:assets';
+import blockspageLogo from '@/assets/logo.svg';
+---
+
+<header class="flex justify-between items-center p-4 w-full max-w-screen-lg mx-auto">
+    <a href="/">
+        <Image src={blockspageLogo} alt="Blockspage Logo" />
+    </a>
+    <nav class="flex gap-4">
+        <a href="/auth">Login / Signup</a>
+    </nav>
+</header>

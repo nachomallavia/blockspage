@@ -45,41 +45,56 @@ const signInWithGoogle = async () => {
 </script>
 
 <template>
-    <div>
-        <h2>Welcome to blockspage</h2>
-        <p>Sign in or create an account</p>
-        <form @submit.prevent>
-            <div>
-                <label for="email">Email</label>
-                <input
-                    id="email"
-                    type="email"
-                    placeholder="Your email"
-                    v-model="email"
-                />
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input
-                    id="password"
-                    type="password"
-                    placeholder="Your password"
-                    v-model="password"
-                />
-            </div>
-            <div>
-                <button @click="handleLogin" :disabled="loading">
-                    {{ loading ? 'Loading...' : 'Login' }}
-                </button>
-                <button @click="handleSignup" :disabled="loading">
-                    {{ loading ? 'Loading...' : 'Sign Up' }}
-                </button>
-            </div>
-            <hr />
-            <div>
-                <button @click="signInWithGoogle">Login with Google</button>
-            </div>
-        </form>
+    <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <div
+            class="flex flex-col items-center justify-center bg-white p-8 rounded-sm shadow-sm"
+        >
+            <h2 class="text-2xl font-bold">Welcome to blockspage</h2>
+            <p class="text-lg">Sign in or create an account</p>
+
+            <form @submit.prevent>
+                <div class="flex gap-2 items-center justify-center mb-4">
+                    <label for="email">Email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="Your email"
+                        v-model="email"
+                    />
+                </div>
+                <div class="flex gap-2 items-center justify-center mb-4">
+                    <label for="password">Password</label>
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Your password"
+                        v-model="password"
+                    />
+                </div>
+                <div>
+                    <button
+                        class="bg-blue-500 text-white p-2 rounded-sm w-full mb-4"
+                        @click="handleLogin"
+                        :disabled="loading"
+                    >
+                        {{ loading ? 'Loading...' : 'Login' }}
+                    </button>
+                    <button
+                        class="bg-blue-500 text-white p-2 rounded-sm"
+                        @click="handleSignup"
+                        :disabled="loading"
+                    >
+                        {{ loading ? 'Loading...' : 'Sign Up' }}
+                    </button>
+                </div>
+                <hr />
+                <div>
+                    <button @click="signInWithGoogle">
+                        Login! with Google
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </template>
 
