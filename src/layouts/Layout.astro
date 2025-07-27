@@ -1,6 +1,7 @@
 ---
 import "@/styles/global.css";
 import "@/styles/starwind.css";
+import "@/styles/brand-theme.css";
 import BrandedHeader from '@/components/BrandedHeader.astro';
 ---
 <!doctype html>
@@ -11,8 +12,26 @@ import BrandedHeader from '@/components/BrandedHeader.astro';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Blockspage</title>
+		<script is:inline>
+			const theme = (() => {
+				if (typeof localStorage !== 'undefined') {
+					const storedTheme = localStorage.getItem('theme');
+					if (storedTheme) {
+						return storedTheme;
+					}
+				}
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					return 'dark';
+				}
+				return 'light';
+			})();
+			
+			if (theme === 'dark') {
+				document.documentElement.classList.add('dark');
+			}
+		</script>
 	</head>
-	<body>
+	<body class="bg-stone-50 text-stone-900 dark:bg-stone-900 dark:text-stone-100 transition-colors">
 		<BrandedHeader />
 		<slot />
 	</body>

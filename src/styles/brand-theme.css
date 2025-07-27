@@ -1,0 +1,19 @@
+:root {
+    --brand-color: #ff7f50;
+}
+
+.brand-color {
+    color: var(--brand-color);
+}
+
+.brand-bg {
+    background-color: var(--brand-color);
+}
+* {
+    font-family: 'DM Sans', sans-serif;
+}
+
+:root {
+    --brand-primary: #ff7f50;
+    --brand-secondary: #ff7f50;
+}

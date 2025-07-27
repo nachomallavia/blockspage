@@ -1,6 +1,8 @@
 ---
 import "@/styles/global.css";
 import "@/styles/starwind.css";
+
+import DashboardSidebar from '@/components/DashboardSidebar.astro';
 ---
 <!doctype html>
 <html lang="en">
@@ -12,17 +14,8 @@ import "@/styles/starwind.css";
 		<title>Blockspage Dashboard</title>
 	</head>
 	<body>
-        <div class="flex">  
-        <aside>
-            <h1>Blockspage</h1>
-            <nav>
-                <a href="/app/dashboard">Dashboard</a>
-                <a href="/app/projects">Projects</a>
-                <a href="/app/templates">Templates</a>
-                <a href="/app/settings">Settings</a>
-                <a href="/app/logout">Logout</a>
-            </nav>
-        </aside>
+        <div class="flex w-full">  
+        <DashboardSidebar />
 		<slot />
         </div>  
 	</body>

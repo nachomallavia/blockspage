@@ -1,13 +1,15 @@
 ---
 import { Image } from 'astro:assets';
 import blockspageLogo from '@/assets/logo.svg';
+import DarkmodeSwitch from './DarkmodeSwitch.astro';
 ---
 
 <header class="flex justify-between items-center p-4 w-full max-w-screen-lg mx-auto">
     <a href="/">
-        <Image src={blockspageLogo} alt="Blockspage Logo" />
+        <Image src={blockspageLogo} alt="Blockspage Logo" class="invert-0 dark:invert"/>
     </a>
-    <nav class="flex gap-4">
-        <a href="/auth">Login / Signup</a>
+    <nav class="flex gap-4 items-center">
+        <DarkmodeSwitch />
+        <a href="/auth" class="text-stone-900 dark:text-stone-100">Login / Signup</a>
     </nav>
 </header>
