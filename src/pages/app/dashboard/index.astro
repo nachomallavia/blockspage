@@ -1,7 +1,95 @@
 ---
-import Layout from '@/layouts/DashboardLayout.astro';
+import DashboardLayout from '@/layouts/DashboardLayout.astro';
+
+// Get user from middleware (guaranteed to exist for /app/* routes)
+const user = Astro.locals.user;
+const session = Astro.locals.session;
 ---
 
-<Layout>
-    <h1 class="text-xl font-bold text-right w-full">{Astro.url.hostname.split('.')[0]} Dashboard</h1>
-</Layout>
+<DashboardLayout title="Dashboard">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-foreground">
+                Welcome back{user?.email ? `, ${user.email.split('@')[0]}` : ''}!
+            </h1>
+            <p class="text-muted-foreground mt-2">
+                Manage your sites, activate premium blocks, and grow your business.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Quick Stats Cards -->
+            <div class="bg-card border border-border rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-foreground mb-2">Your Sites</h3>
+                <p class="text-3xl font-bold text-primary">0</p>
+                <p class="text-sm text-muted-foreground">Active sites</p>
+            </div>
+
+            <div class="bg-card border border-border rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-foreground mb-2">Premium Blocks</h3>
+                <p class="text-3xl font-bold text-secondary">0</p>
+                <p class="text-sm text-muted-foreground">Activated blocks</p>
+            </div>
+
+            <div class="bg-card border border-border rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-foreground mb-2">Plan</h3>
+                <p class="text-lg font-semibold text-foreground">Free</p>
+                <p class="text-sm text-muted-foreground">Current plan</p>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold text-foreground mb-4">Quick Actions</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <button class="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg p-4 text-center starwind-transition-colors">
+                    <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                    <p class="font-medium">Create Site</p>
+                </button>
+
+                <button class="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-lg p-4 text-center starwind-transition-colors">
+                    <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                    <p class="font-medium">Browse Blocks</p>
+                </button>
+
+                <button class="bg-outline hover:bg-accent hover:text-accent-foreground border border-input rounded-lg p-4 text-center starwind-transition-colors">
+                    <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <p class="font-medium">View Analytics</p>
+                </button>
+
+                <button class="bg-outline hover:bg-accent hover:text-accent-foreground border border-input rounded-lg p-4 text-center starwind-transition-colors">
+                    <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <p class="font-medium">Settings</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold text-foreground mb-4">Recent Activity</h2>
+            <div class="bg-card border border-border rounded-lg p-6">
+                <p class="text-muted-foreground text-center py-8">
+                    No recent activity. Create your first site to get started!
+                </p>
+            </div>
+        </div>
+
+        <!-- Logout -->
+        <div class="mt-8 text-center">
+            <form action="/api/auth/logout" method="post">
+                <button type="submit" class="text-muted-foreground hover:text-foreground text-sm starwind-transition-colors">
+                    Sign out
+                </button>
+            </form>
+        </div>
+    </div>
+</DashboardLayout>

@@ -2,6 +2,8 @@
 import blockspageLogo from '../assets/logo.svg';
 import { Image } from 'astro:assets';
 import DarkmodeSwitch from './DarkmodeSwitch.astro';
+import { Icon } from 'astro-icon/components';
+import Button from './starwind/button/Button.astro';
 ---
 <aside class="w-60 h-screen bg-stone-50 dark:bg-stone-900">
     <div class="flex justify-between align-center p-4 w-full">
@@ -15,6 +17,12 @@ import DarkmodeSwitch from './DarkmodeSwitch.astro';
         <a href="/app/site">Site Settings</a>
         <a href="/app/pages">Pages</a>
         <a href="/app/blocks">Blocks</a>
-        <a href="/app/logout">Logout</a>
+       
     </nav>
+    <a href="/api/auth/logout" class="w-full">   
+        <Button variant="ghost" size="sm" class="w-full">
+            <Icon name="ph:sign-out" />
+            Logout
+        </Button>
+    </a>
 </aside>

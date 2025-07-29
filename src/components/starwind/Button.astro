@@ -1,0 +1,40 @@
+---
+export interface Props {
+  type?: 'button' | 'submit' | 'reset';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  class?: string;
+}
+
+const { 
+  type = 'button', 
+  variant = 'primary', 
+  size = 'md', 
+  disabled = false,
+  class: className = ''
+} = Astro.props;
+
+const baseClasses = 'inline-flex items-center justify-center rounded-lg font-medium starwind-transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50';
+
+const variantClasses = {
+  primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
+  secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/90',
+  ghost: 'hover:bg-accent hover:text-accent-foreground',
+  outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground'
+};
+
+const sizeClasses = {
+  sm: 'h-9 px-3 text-sm',
+  md: 'h-10 px-4 py-2',
+  lg: 'h-11 px-8'
+};
+---
+
+<button
+  type={type}
+  disabled={disabled}
+  class={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+>
+  <slot />
+</button> 
